@@ -37,3 +37,15 @@
 body:not(i){
     font-family: "kalameh-regular", sans-serif;
 }
+
+* {
+    outline: none;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
