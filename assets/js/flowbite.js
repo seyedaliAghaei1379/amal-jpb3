@@ -3381,6 +3381,3 @@
 //# sourceMappingURL=flowbite.js.map
 
 
-function myFunction(){
-  
-}
