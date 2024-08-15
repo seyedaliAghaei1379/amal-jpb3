@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/persian-date.js"></script>
+    <script src="assets/js/persian-datepicker.js"></script>
+    <link rel="stylesheet" href="assets/css/persian-datepicker.min.css">
+
+    <title>Babakhani Datepicker Example</title>
+</head>
+<body>
+<input type="text" class="example1" />
+
+<script>
+    $(document).ready(function() {
+        var options = {
+            inline: false,
+            autoClose: true,
+            onSelect: function(unix){
+                var date = new persianDate(unix);
+                var year = date.year();
+                var month = (date.month() + 1).toString().padStart(2, '0'); // ماه را با صفر پر می‌کنیم
+                var day = date.date().toString().padStart(2, '0'); // روز را با صفر پر می‌کنیم
+                // نمایش تاریخ به فرمت YYYY/MM/DD در input
+                $(".example1").val(year + '/' + month + '/' + day);
+                // نمایش timestamp در کنسول
+                console.log('Selected Timestamp: ' + unix);
+            }
+        }
+        var pd = $(".example1").pDatepicker(options);
+        // مقدار اولیه به فرمت YYYY/MM/DD
+        pd.setDate(new persianDate('1379/02/14').valueOf());
+    });
+</script>
+
+</body>
+</html>
